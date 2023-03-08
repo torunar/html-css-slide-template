@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>CSS slides</title>
+    <style>
+        :root {
+            --fontSize: 5vh;
+            --verticalPadding: calc(var(--fontSize) / 2);
+            --horizontalPadding: 2vw;
+            --headerColor: #111;
+            --textColor: #333;
+            --navigationColor: #999;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            line-height: var(--fontSize);
+            font-size: var(--fontSize);
+            font-family: "Open Sans", Ubuntu, "Segoe UI", Arial, Helvetica, sans-serif;
+        }
+
+        section {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            grid-template:
+                "header"
+                "text"
+                "nav";
+            grid-template-rows: min-content 1fr min-content;
+        }
+
+        header {
+            grid-area: header;
+            font-weight: bold;
+            padding: var(--verticalPadding) var(--horizontalPadding);
+            font-size: calc(1.5 * var(--fontSize));
+            line-height: calc(1.5 * var(--fontSize));
+            color: var(--headerColor);
+        }
+
+        article {
+            grid-area: text;
+            padding: var(--verticalPadding) var(--horizontalPadding);
+            color: var(--textColor);
+            overflow: hidden;
+        }
+
+        article p, article ul, article ol, article li {
+            margin-bottom: var(--verticalPadding);
+        }
+
+        article ul, article ol {
+            margin-left: 1em;
+        }
+
+        nav {
+            grid-area: nav;
+            align-self: end;
+            display: grid;
+            grid-template: "prev number next";
+            grid-template-columns: min-content 1fr min-content;
+        }
+
+        nav > * {
+            color: var(--navigationColor);
+            text-decoration: none;
+            display: block;
+            padding: var(--verticalPadding) var(--horizontalPadding);
+            font-size: calc(0.5 * var(--fontSize));
+            line-height: calc(0.5  * var(--fontSize));
+        }
+
+        nav > a:hover {
+            color: var(--textColor);
+        }
+
+        nav > a:first-of-type::before {
+            grid-area: prev;
+            content: '◀';
+        }
+
+        nav > i {
+            grid-area: number;
+            text-align: center;
+            font-style: normal;
+        }
+
+        nav > a:last-of-type::after {
+            grid-area: next;
+            content: '▶';
+        }
+
+        section:first-of-type > nav > a:first-of-type, section:last-of-type > nav > a:last-of-type {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<template>
+    <section id="sNumber">
+        <header>Title</header>
+        <article>
+            <p>Text</p>
+        </article>
+        <nav>
+            <a href="#sPrev"></a>
+            <i>{number}</i>
+            <a href="#sNext"></a>
+        </nav>
+    </section>
+</template>
+
+</body>
+</html>
