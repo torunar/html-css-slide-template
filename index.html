@@ -16,6 +16,7 @@
 
         body {
             overflow: hidden;
+			counter-reset: number;
         }
 
         * {
@@ -92,6 +93,11 @@
             grid-area: number;
             text-align: center;
             font-style: normal;
+            counter-increment: number;
+        }
+		
+        nav > i::before {
+            content: counter(number);
         }
 
         nav > a:last-of-type::after {
@@ -114,7 +120,7 @@
         </article>
         <nav>
             <a href="#sPrev"></a>
-            <i>{number}</i>
+            <i></i>
             <a href="#sNext"></a>
         </nav>
     </section>

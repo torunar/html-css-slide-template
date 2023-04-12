@@ -20,7 +20,7 @@ Resulting document body should look like this:
   </article>
   <nav>
       <a href="#s1"></a>
-      <i>1</i>
+      <i></i>
       <a href="#s2"></a>
   </nav>
 </section>
@@ -32,7 +32,7 @@ Resulting document body should look like this:
   </article>
   <nav>
       <a href="#s1"></a>
-      <i>2</i>
+      <i></i>
       <a href="#s3"></a>
   </nav>
 </section>
@@ -44,9 +44,9 @@ Resulting document body should look like this:
   </article>
   <nav>
       <a href="#s2"></a>
-      <i>3</i>
+      <i></i>
       <a href="#s3"></a>
   </nav>
 </section>
 ```
-  
+ 
